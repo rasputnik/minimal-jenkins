@@ -4,6 +4,6 @@
   yum: name=java-1.7.0-openjdk-devel state=present
 
 - name: set JAVA7_HOME var
-  copy: src=etc/profile.d/java7.sh
-        dest=/etc/profile.d/java7.sh
-        mode=0444 owner=root group=root
+  template: src=etc/profile.d/java7.sh
+            dest=/etc/profile.d/java7.sh
+            mode=0444 owner=root group=root
