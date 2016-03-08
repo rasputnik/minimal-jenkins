@@ -3,6 +3,7 @@
   roles:
     - java/eight
     - jenkins/account
+    - repos/jenkins
 
 - hosts: slaves
   sudo: yes

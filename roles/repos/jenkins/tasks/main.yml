@@ -1,0 +1,7 @@
+---
+
+- name: jenkins RPM repo
+  copy: src=.{{ item }} dest={{ item }} mode=0444
+  with_items:
+    - /etc/pki/rpm-gpg/RPM-GPG-KEY-jenkins
+    - /etc/yum.repos.d/jenkins.repo
