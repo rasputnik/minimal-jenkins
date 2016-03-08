@@ -1,0 +1,7 @@
+---
+
+#NB: if you want a specific release
+# (preferably LTS), set it on an inventory
+# (see vagrant/hosts)
+
+jenkins_rpm: jenkins

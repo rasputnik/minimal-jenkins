@@ -1,0 +1,12 @@
+---
+
+- name: bounce jenkins
+  service: name=jenkins state=restarted
+  notify: wait for jenkins
+
+- name: wait for jenkins
+  shell: curl --head --silent http://localhost:{{ jenkins_http_port }}/cli/
+  register: result
+  until: result.stdout.find("200 OK") != -1
+  retries: 12
+  delay: 5

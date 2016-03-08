@@ -3,10 +3,13 @@
   vars:
     jenkins_user: jenkins
     jenkins_home: /var/lib/jenkins
+    jenkins_http_port: 8080
+    jenkins_ajp_port: -1
   roles:
     - java/eight
     - jenkins/account
     - repos/jenkins
+    - jenkins/master
 
 - hosts: slaves
   sudo: yes

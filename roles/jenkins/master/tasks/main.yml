@@ -1,0 +1,12 @@
+- name: install jenkins jenkins_rpm
+  yum: name={{ jenkins_rpm }} state=present
+
+- name: sysconfig for jenkins
+  template: src=etc/sysconfig/jenkins.j2
+            dest=/etc/sysconfig/jenkins
+            mode=0444 owner=root group=root
+  notify: bounce jenkins
+
+- name: enable jenkins service
+  service: name=jenkins state=running enabled=yes
+  notify: wait for jenkins
