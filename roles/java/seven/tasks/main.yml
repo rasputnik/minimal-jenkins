@@ -1,0 +1,9 @@
+---
+
+- name: install JDK7
+  yum: name=java-1.7.0-openjdk state=present
+
+- name: set JAVA7_HOME var
+  copy: src=etc/profile.d/java7.sh
+        dest=/etc/profile.d/java7.sh
+        mode=0444 owner=root group=root

@@ -1,0 +1,9 @@
+- hosts: masters
+  sudo: yes
+  roles:
+    - java/eight
+
+- hosts: slaves
+  sudo: yes
+  roles:
+    - java/eight

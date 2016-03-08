@@ -1,0 +1,9 @@
+---
+
+- name: install JDK8
+  yum: name=java-1.8.0-openjdk state=present
+
+- name: set JAVA8_HOME var
+  copy: src=etc/profile.d/java8.sh
+        dest=/etc/profile.d/java8.sh
+        mode=0444 owner=root group=root
