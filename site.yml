@@ -1,5 +1,8 @@
 - hosts: masters
   sudo: yes
+  vars:
+    jenkins_user: jenkins
+    jenkins_home: /var/lib/jenkins
   roles:
     - java/eight
     - jenkins/account
@@ -7,6 +10,9 @@
 
 - hosts: slaves
   sudo: yes
+  vars:
+    jenkins_user: jenkins
+    jenkins_home: /var/jenkins-slave
   roles:
     - java/eight
     - jenkins/account

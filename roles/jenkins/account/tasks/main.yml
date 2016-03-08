@@ -1,9 +1,10 @@
 ---
 
-- name: create jenkins user
-  user: name=jenkins comment="Jenkins"
+- name: create {{ jenkins_user }}
+  user: name={{ jenkins_user }} comment="Jenkins"
+        home={{ jenkins_home }}
 
-- name: set ulimit for jenkins user
-  copy: src=etc/security/limits.d/jenkins-maxfiles.conf
+- name: set ulimit for {{ jenkins_user }}
+  template: src=etc/security/limits.d/jenkins-maxfiles.conf.j2
         dest=/etc/security/limits.d/jenkins-maxfiles.conf
         mode=0444 owner=root group=root
