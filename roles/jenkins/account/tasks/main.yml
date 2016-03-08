@@ -1,0 +1,9 @@
+---
+
+- name: create jenkins user
+  user: name=jenkins comment="Jenkins"
+
+- name: set ulimit for jenkins user
+  copy: src=etc/security/limits.d/jenkins-maxfiles.conf
+        dest=/etc/security/limits.d/jenkins-maxfiles.conf
+        mode=0444 owner=root group=root

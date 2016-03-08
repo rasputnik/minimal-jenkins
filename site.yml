@@ -2,8 +2,10 @@
   sudo: yes
   roles:
     - java/eight
+    - jenkins/account
 
 - hosts: slaves
   sudo: yes
   roles:
     - java/eight
+    - jenkins/account
