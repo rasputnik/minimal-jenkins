@@ -6,10 +6,11 @@
     jenkins_http_port: 8080
     jenkins_ajp_port: -1
   roles:
-    - java/eight
     - jenkins/account
     - repos/jenkins
-    - jenkins/master
+# this role sets a 'java8_home' var
+    - java/eight
+    - { role: jenkins/master, java_home: "{{ java8_home }}" }
 
 - hosts: slaves
   sudo: yes

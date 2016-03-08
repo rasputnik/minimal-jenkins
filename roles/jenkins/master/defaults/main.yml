@@ -5,3 +5,7 @@
 # (see vagrant/hosts)
 
 jenkins_rpm: jenkins
+
+# override this in once you have a good JVM;
+# /usr may vary depending on 'alternatives' system
+java_home: /usr
