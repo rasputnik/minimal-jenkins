@@ -1,7 +1,7 @@
 ---
 
 - name: install JDK8
-  yum: name=java-1.8.0-openjdk state=present
+  yum: name=java-1.8.0-openjdk-devel state=present
 
 - name: set JAVA8_HOME var
   copy: src=etc/profile.d/java8.sh
