@@ -1,0 +1,15 @@
+---
+
+# run handlers (so jenkins should be up)
+- meta: flush_handlers
+
+- name: download jenkins CLI jar
+  get_url: url=http://localhost:{{ jenkins_http_port }}/jnlpJars/jenkins-cli.jar
+           dest={{ jenkins_cli_jar }} mode=0444
+           owner=root group=root
+
+- name: create shell script to wrap CLI
+  template: src=./{{ jenkins_cli_command }}.j2
+            dest={{ jenkins_cli_command }} mode=0555
+            owner=root group=root
+

@@ -1,3 +1,5 @@
+---
+
 - name: install jenkins jenkins_rpm
   yum: name={{ jenkins_rpm }} state=present
 
@@ -10,3 +12,5 @@
 - name: enable jenkins service
   service: name=jenkins state=running enabled=yes
   notify: wait for jenkins
+
+- include: cli.yml
