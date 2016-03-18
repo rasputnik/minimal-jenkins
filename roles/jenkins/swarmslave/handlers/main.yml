@@ -1,0 +1,4 @@
+---
+
+- name: bounce swarm
+  service: name=swarm state=restarted

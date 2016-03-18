@@ -1,0 +1,20 @@
+---
+
+- name: download swarm jar v{{ swarm_version }}
+  get_url: url={{ swarm_topurl }}/{{ swarm_version }}/swarm-client-{{ swarm_version }}-jar-with-dependencies.jar
+           dest={{ swarm_jar }} mode=0444
+           owner=root group=root
+
+- name: set logrotate on {{ swarm_log }}
+  template: src=etc/logrotate.d/swarm.j2
+            dest=/etc/logrotate.d/swarm
+            mode=0444 owner=root group=root
+
+- name: upstart unit
+  template: src=etc/init/swarm.conf.j2
+            dest=/etc/init/swarm.conf
+            mode=0444 owner=root group=root
+  notify: bounce swarm
+
+- name: start swarm
+  service: name=swarm state=started enabled=yes
