@@ -1,0 +1,12 @@
+---
+
+- name: check if {{ plugin }} plugin is already installed
+  shell: "{{ jenkins_cli_command }} list-plugins | awk '{print $1}' | grep {{ plugin }}"
+  register: plugin_present
+  changed_when: False
+  ignore_errors: True
+
+- name: install {{ plugin }} plugin using CLI wrapper
+  command: "{{ jenkins_cli_command }} install-plugin {{ plugin }}"
+  when: plugin_present|failed
+  notify: bounce jenkins
