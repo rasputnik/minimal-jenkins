@@ -1,0 +1,7 @@
+---
+
+# any vars to be shared across master and slave
+# should live here
+
+jenkins_http_port: 8080
+jenkins_user: jenkins
