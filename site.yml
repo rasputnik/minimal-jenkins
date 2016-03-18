@@ -11,11 +11,15 @@
     - java/eight
 # basic master using the specifed JVM.
     - { role: jenkins/master, java_home: "{{ java8_home }}" }
+    - { role: jenkins/plugin, plugin: swarm }
 
 - hosts: slaves
   sudo: yes
   vars:
     jenkins_home: /var/jenkins-slave
+    swarm_version: 2.0
   roles:
     - java/eight
     - jenkins/account
+    - { role: jenkins/swarmslave,
+        swarm_master: "http://{{ groups['masters'][0] }}:{{ jenkins_http_port }}/" }

@@ -1,0 +1,17 @@
+---
+
+# you'll need to set swarmslave_version to use this role
+
+swarm_topurl: http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/
+
+swarm_jar: /usr/local/lib/swarm-client-{{ swarm_version }}-jar-with-dependencies.jar
+
+swarm_log: /var/log/swarm.log
+
+# CLI args, see 'Available Options' at https://wiki.jenkins-ci.org/display/JENKINS/Swarm+Plugin
+swarm_executors: 4
+swarm_name: "{{ inventory_hostname }}"
+swarm_mode: exclusive
+swarm_labels: "{{ ansible_architecture }} {{ ansible_os_family }}"
+swarm_retry: 4
+swarm_description: "Ansible managed Swarm slave"
