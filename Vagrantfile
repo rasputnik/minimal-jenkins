@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# needed for linked clones to work
+Vagrant.require_version ">= 1.8.0"
+
 hosts = [ {:name => "jmaster", :ip => "10.20.9.91", :ram => 1024},
           {:name => "jslave1", :ip => "10.20.9.201", :ram => 2048},
           {:name => "jslave2", :ip => "10.20.9.202", :ram => 2048}
@@ -27,6 +30,7 @@ Vagrant.configure("2") do |config|
 
       c.vm.provider("virtualbox") do |vb|
         vb.memory = host[:ram]
+        vb.linked_clone = true
       end
 
       # turn off shared folder
