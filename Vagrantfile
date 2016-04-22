@@ -22,8 +22,8 @@ Vagrant.configure("2") do |config|
       # vagrant 'feature' breaks ansible without this
       c.ssh.insert_key = false
 
-      c.vm.box = "box-cutter/centos66"
-      c.vm.box_version = "2.0.11"
+      c.vm.box = "box-cutter/centos72"
+      c.vm.box_version = "2.0.13"
 
       c.vm.host_name = host[:name]
       c.vm.network :private_network, ip: host[:ip], netmask: "255.255.255.0"
