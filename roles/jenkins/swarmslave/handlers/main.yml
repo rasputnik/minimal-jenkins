@@ -1,7 +1,10 @@
 ---
+# NB: order matters! handlers fire in order
+# they appear in this file, not order they are
+# notified.
+#
+- name: reload systemd
+  command: /usr/bin/systemctl daemon-reload
 
 - name: bounce swarm
   service: name=swarm state=restarted
-
-- name: refresh systemd
-  command: /usr/bin/systemctl daemon-reload
