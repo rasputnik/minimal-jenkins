@@ -22,4 +22,5 @@
     - java/eight
     - jenkins/account
     - { role: jenkins/swarmslave,
-        swarm_master: "http://{{ groups['masters'][0] }}:{{ jenkins_http_port }}/" }
+        swarm_master: "http://{{ groups['masters'][0] }}:{{ jenkins_http_port }}/",
+        java_home: "{{ java8_home }}" }

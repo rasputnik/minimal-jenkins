@@ -2,3 +2,6 @@
 
 - name: bounce swarm
   service: name=swarm state=restarted
+
+- name: refresh systemd
+  command: /usr/bin/systemctl daemon-reload

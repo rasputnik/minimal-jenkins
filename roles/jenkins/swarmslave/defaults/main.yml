@@ -6,8 +6,6 @@ swarm_topurl: http://maven.jenkins-ci.org/content/repositories/releases/org/jenk
 
 swarm_jar: /usr/local/lib/swarm-client-{{ swarm_version }}-jar-with-dependencies.jar
 
-swarm_log: /var/log/swarm.log
-
 # CLI args, see 'Available Options' at https://wiki.jenkins-ci.org/display/JENKINS/Swarm+Plugin
 swarm_executors: 4
 swarm_name: "{{ inventory_hostname }}"

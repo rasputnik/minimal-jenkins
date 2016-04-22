@@ -1,0 +1,11 @@
+[Unit]
+Description={{ swarm_description }}
+After=network.target
+
+[Service]
+ExecStart={{ java_home }}/bin/java -jar {{ swarm_jar }} -master {{ swarm_master }} -name {{ swarm_name }} -executors {{ swarm_executors }} -mode {{ swarm_mode }} -labels '{{ swarm_labels }}' -retry {{ swarm_retry }} -description '{{ swarm_description }}'
+Restart=always
+User={{ jenkins_user }}
+
+[Install]
+WantedBy=multi-user.target
